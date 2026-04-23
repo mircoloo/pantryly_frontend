@@ -38,11 +38,21 @@
             "backgroundColor": "#000000"
           }
         }
-      ]
+      ],
+      "expo-font",
+      "expo-image",
+      "expo-web-browser"
     ],
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "79861a5a-5328-4269-a655-474fd3b6db2c"
+      }
+    },
+    "owner": "mircolo"
   }
 }
