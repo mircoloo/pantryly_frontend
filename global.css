@@ -5,7 +5,7 @@
 @import "nativewind/theme";
 
 @theme {
-    --color-background: #fff9e3;
+    --color-background: #e8732a;
     --color-foreground: #081126;
     --color-card: #fff8e7;
     --color-muted: #f6eecf;
@@ -16,6 +16,7 @@
     --color-success: #16a34a;
     --color-destructive: #dc2626;
     --color-subscription: #8fd1bd;
+    --color-button: #005246;
 
     --spacing-0: 0px;
     --spacing-1: 4px;
