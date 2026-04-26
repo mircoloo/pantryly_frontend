@@ -5,7 +5,7 @@ import { Pressable, Text, View } from "react-native";
 export default function App() {
   return (
     <View
-  className="flex-1 items-center justify-center bg-background"
+  className="flex-1 items-center justify-center"
   >
       <Text className="text-xl font-bold text-primary">
         Welcome to Nativewind!
@@ -32,8 +32,12 @@ export default function App() {
 
       <Link href={{
         pathname: "/subscriptions/[id]",
-        params: {"id": "claude"}
-      }}>Claude Max Subscription</Link>
+        params: {"id": "Mircolo"}
+      }}
+      className="bg-primary mt-4 rounded p-3"
+      >Claude Max Subscription
+      
+      </Link>
     </View>
   );
 }
