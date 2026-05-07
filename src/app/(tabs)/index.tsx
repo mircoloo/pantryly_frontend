@@ -1,7 +1,8 @@
-
+import { Ionicons } from "@expo/vector-icons";
 import { Button } from "@react-navigation/elements";
 import { Image } from "expo-image";
 import { Link, useRouter } from "expo-router";
+import React from "react";
 
 
 import { ActivityIndicator, StyleSheet, Text, TextInput, View } from "react-native";
@@ -15,11 +16,11 @@ export default function Index() {
         source={ {uri: "https://media.tenor.com/HHZOPnpoWPMAAAAM/why-you-lying.gif"}}
         style={styles.image}
       />
-      <TextInput placeholder="Email"></TextInput>
+      <TextInput placeholder="E-mail"></TextInput>
       <ActivityIndicator size={"large"}></ActivityIndicator>
       <Link href={"/about"}>Go to about page</Link> 
-      <Button onPress={() => router.push("/about")}>
-        About
+      <Button onPress={() => router.push("/scanner")}>
+        <Ionicons  name="add-circle-outline"/>
       </Button>
     </View>
   );

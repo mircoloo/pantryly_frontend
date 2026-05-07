@@ -6,7 +6,7 @@ export default function Scanner() {
   const router = useRouter()
   return (
     <View style={styles.container}>
-      <Text style={styles.helloWorldTitle}>Profile Page</Text>
+      <Text style={styles.helloWorldTitle}>Scanner Page</Text>
     </View>
   );
 }
