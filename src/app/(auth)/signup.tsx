@@ -1,13 +1,39 @@
+import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "expo-router";
+import { useState } from "react";
 import {
+    ActivityIndicator,
+    Alert,
     StyleSheet,
     Text,
     TextInput,
     TouchableOpacity,
     View,
 } from "react-native";
+
 import { SafeAreaView } from "react-native-safe-area-context";
 export default function LoginScreen() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const { signUp } = useAuth();
+  const handleSignUp = async () => {
+    if (!email || !password) {
+      Alert.alert("Error", "Please fill in all fields");
+      return;
+    }
+    if (password.length < 3) {
+      Alert.alert("Error", "Password must be at least 3 characters");
+    }
+
+    try {
+      await signUp(email, password);
+    } catch (error) {
+      Alert.alert("Error", "Failed to Sign Up. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
   const router = useRouter();
   return (
     <SafeAreaView edges={["top", "bottom"]} style={styles.container}>
@@ -22,6 +48,8 @@ export default function LoginScreen() {
             autoComplete="email"
             autoCapitalize="none"
             style={styles.input}
+            onChangeText={setEmail}
+            value={email}
           />
           <TextInput
             placeholder="Password..."
@@ -30,9 +58,15 @@ export default function LoginScreen() {
             secureTextEntry
             autoCapitalize="none"
             style={styles.input}
+            onChangeText={setPassword}
+            value={password}
           />
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText}>Sign Up</Text>
+          <TouchableOpacity style={styles.button} onPress={handleSignUp}>
+            {isLoading ? (
+              <ActivityIndicator size={24} color={"#fff"}></ActivityIndicator>
+            ) : (
+              <Text style={styles.buttonText}>Sign Up</Text>
+            )}
           </TouchableOpacity>
 
           <TouchableOpacity

@@ -1,3 +1,4 @@
+import { AuthProvider } from "@/context/AuthContext";
 import { Stack, useRouter } from "expo-router";
 import { useEffect } from "react";
 
@@ -12,16 +13,18 @@ export default function RootLayout() {
     }
   });
   return (
-    <Stack
-      screenOptions={{
-        headerStyle: { backgroundColor: "#E8732A" },
-        headerShown: false,
-        animation: "slide_from_right",
-        headerTintColor: "white",
-      }}
-    >
-      <Stack.Screen name="(tabs)" />
-      <Stack.Screen name="(auth)" />
-    </Stack>
+    <AuthProvider>
+      <Stack
+        screenOptions={{
+          headerStyle: { backgroundColor: "#E8732A" },
+          headerShown: false,
+          animation: "slide_from_right",
+          headerTintColor: "white",
+        }}
+      >
+        <Stack.Screen name="(tabs)" />
+        <Stack.Screen name="(auth)" />
+      </Stack>
+    </AuthProvider>
   );
 }
